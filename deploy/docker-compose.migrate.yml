@@ -1,0 +1,40 @@
+services:
+  bi-migrate:
+    image: metabase/metabase:v0.31.2
+    container_name: smc-blitar-metabase-migrate
+    command: load-from-h2
+    volumes:
+      - ./data/metabase/data:/metabase-data
+    environment:
+      JAVA_TIMEZONE: Asia/Jakarta
+      MB_DB_FILE: /metabase-data/metabase.db
+      MB_DB_TYPE: mysql
+      MB_DB_DBNAME: metabase
+      MB_DB_USER: metabase-user
+      MB_DB_PASS: dodol-garut
+      MB_DB_HOST: bi-database
+      MB_DB_PORT: 3306
+      JAVA_TOOL_OPTIONS: -Xms1g -Xmx1g
+    restart: always
+    depends_on:
+      - bi-database
+    networks:
+       - smc
+
+  bi-database:
+    image: mysql:5
+    container_name: smc-blitar-database
+    restart: always
+    environment:
+      MYSQL_DATABASE: metabase
+      MYSQL_USER: metabase-user
+      MYSQL_PASSWORD: dodol-garut
+      MYSQL_ROOT_PASSWORD: root-smc-blitar
+    volumes:
+      - ./data/metabase-database:/var/lib/mysql
+    networks:
+      - smc
+
+networks:
+  smc:
+    driver: bridge

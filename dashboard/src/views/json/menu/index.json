@@ -1,0 +1,95 @@
+[
+    {
+        "icon": "home",
+        "name": "home",
+        "dashboard": "index",
+        "title": "Home"
+    },
+    {
+        "icon": "domain",
+        "name": "smart-governance",
+        "title": "Smart Governance",
+        "child": [
+            {
+                "icon": "credit_card",
+                "name": "apbd-api",
+                "dashboard": "apbd-api",
+                "title": "APBD"
+            },
+            {
+                "icon": "credit_card",
+                "name": "e-monev-api",
+                "dashboard": "e-monev-api",
+                "title": "E-Monev"
+            },
+            {
+                "icon": "person",
+                "name": "kepegawaian",
+                "dashboard": "kepegawaian",
+                "title": "Kepegawaian"
+            },
+            {
+                "icon": "person",
+                "name": "ulpim-kota-blitar",
+                "dashboard": "ulpim-kota-blitar",
+                "title": "ULPIM"
+            }
+        ]
+    },
+    {
+        "icon": "photo_filter",
+        "name": "smart-branding",
+        "title": "Smart Branding",
+        "child": [
+            {
+                "icon": "camera_enhance",
+                "name": "pariwisata",
+                "dashboard": "pariwisata",
+                "title": "Pariwisata"
+            },
+            {
+                "icon": "description",
+                "name": "media-online",
+                "dashboard": "media-online",
+                "title": "Media Online"
+            }
+        ]
+    },
+    {
+        "icon": "account_balance_wallet",
+        "name": "smart-economy",
+        "dashboard": "smart-economy",
+        "title": "Smart Economy"
+    },
+    {
+        "icon": "accessibility_new",
+        "name": "smart-living",
+        "title": "Smart Living",
+        "child": [
+            {
+                "icon": "accessibility_new",
+                "name": "smart-living-health",
+                "dashboard": "kesehatan-kota",
+                "title": "Kesehatan Kota"
+            },
+            {
+                "icon": "accessibility_new",
+                "name": "smart-living-weather",
+                "dashboard": "smart-living",
+                "title": "Cuaca Internasional"
+            }
+        ]
+    },
+    {
+        "icon": "supervisor_account",
+        "name": "smart-society",
+        "dashboard": "smart-society",
+        "title": "Smart Society"
+    },
+    {
+        "icon": "nature_people",
+        "name": "smart-environment",
+        "dashboard": "smart-environment",
+        "title": "Smart Environment"
+    }
+]

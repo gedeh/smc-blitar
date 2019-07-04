@@ -1,0 +1,121 @@
+{
+    "title": "E-monev - Kota Blitar",
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "title": "Paket Swakelola dan Penyedia Dalam RUP",
+                            "accent": "teal",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "pie",
+                            "height": 200
+                        },
+                        "url": "emonev/pemilihan_rup",
+                        "label": "Pemilihan Penyedia",
+                        "data": [ "paket", "total" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "title": "Jenis Pengadaan Dalam RUP",
+                            "accent": "green",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "pie",
+                            "height": 200
+                        },
+                        "url": "emonev/jenis_pengadaan_rup",
+                        "label": "jenis_pengadaan_sirup",
+                        "data": [ "paket", "total" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "accent": "amber",
+                            "icon": "group",
+                            "title": "Metode Pemilihan"
+                        },
+                        "chart": {
+                            "type": "pie",
+                            "height": 200
+                        },
+                        "url": "emonev/pemilihan_penyedia",
+                        "label": "metode_pemilihan_sirup",
+                        "data": [ "total", "pagu" ]
+                    }
+                }
+            ]
+        },
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "accent": "red",
+                            "icon": "group",
+                            "title": "Realisasi Belanja"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "emonev/realisasi_belanja",
+                        "label": "Belanja Langsung",
+                        "data": [ "pagu", "realisasi" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "accent": "indigo",
+                            "icon": "group",
+                            "title": "Realisasi RUP"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "emonev/realisasi_rup",
+                        "label": "metode_pemilihan_sirup",
+                        "data": [ "pagu", "pagu_reliasasi" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "accent": "indigo",
+                            "icon": "group",
+                            "title": "Realisasi Per Bidang Urusan"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "emonev/realisasi_per_bidang",
+                        "label": "NAMA_BIDANG",
+                        "data": [ "TOTAL_PAGU", "REALISASI" ]
+                    }
+                }
+            ]
+        }
+    ]
+}

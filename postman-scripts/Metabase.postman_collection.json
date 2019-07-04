@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "2343db61-6948-4c56-9a08-73a1169967ca",
+		"name": "Metabase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a9e0d812-53fe-4ae7-b1b6-544107b862d5",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Error is empty\", function () {",
+							"    pm.expect(jsonData.errors).to.eql(undefined);",
+							"});",
+							"",
+							"pm.test(\"Session key returned\", function () {",
+							"    pm.expect(jsonData.id).to.not.eql(undefined);",
+							"    pm.environment.set(\"api-key\", jsonData.id);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"{{metabase-username}}\",\n\t\"password\": \"{{metabase-api-password}}\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/session",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/session/properties",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a9e0d812-53fe-4ae7-b1b6-544107b862d5",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Error is empty\", function () {",
+							"    pm.expect(jsonData.errors).to.eql(undefined);",
+							"});",
+							"",
+							"pm.test(\"Session key returned\", function () {",
+							"    pm.expect(jsonData.id).to.not.eql(undefined);",
+							"    pm.environment.set(\"api-key\", jsonData.id);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"{{metabase-username}}\",\n\t\"password\": \"{{metabase-api-password}}\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/session/properties",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"session",
+						"properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/dashboard",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/dashboard/1",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"dashboard",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/card",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/card",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"card"
+					]
+				},
+				"description": "Get all cards"
+			},
+			"response": []
+		},
+		{
+			"name": "/card/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/card/1",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"card",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/card/1/query",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/card/1/query",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"card",
+						"1",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/card/6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/card/6",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"card",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/card/6/query",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/card/6/query",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"card",
+						"6",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/database",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"engine\": \"mysql\",\n\t\"name\": \"test-database\",\n\t\"details\": {\n\t\t\"host\": \"localhost\",\n\t\t\"port\": 3306,\n\t\t\"dbname\": \"database\",\n\t\t\"user\": \"username\",\n\t\t\"password\": \"password\",\n\t\t\"tunnel-enabled\": true,\n\t\t\"tunnel-host\": \"ssh.tunnel.host\",\n\t\t\"tunnel-port\":22,\n\t\t\"tunnel-user\": \"ssh-username\",\n\t\t\"tunnel-pass\": \"ssh-password\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/database",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"database"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/database",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Metabase-Session",
+						"value": "{{api-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/api/database",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"database"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

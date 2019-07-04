@@ -1,0 +1,152 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-frontend",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "build-frontend"],
+            "options": {
+                "env": {
+                    "NODE_ENV": "production"
+                },
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build-frontend-watch",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "build-frontend-watch"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build-react",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "build-react"],
+            "options": {
+                "env": {
+                    "NODE_ENV": "production",
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080",
+                },
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build-react-watch",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "build-react-watch"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080",
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "start-local",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "start-dev"],
+            "options": {
+                "env": {
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080",
+                    "METABASE_URL": "http://localhost:8080",
+                    "METABASE_API_USERNAME": "metabase-username@localhost.local",
+                    "METABASE_API_PASSWORD": "metabase-api-password",
+                    "METABASE_API_KEY": "",
+                    "LOG_LEVEL": "debug"
+                },
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build-docker-dashboard",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "build",
+                "-t",
+                "gedeh/smc-dashboard:latest",
+                "."
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "METABASE_URL": "http://localhost:8080",
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080",
+                    "METABASE_API_USERNAME": "metabase-username@localhost.local",
+                    "METABASE_API_PASSWORD": "metabase-api-password",
+                    "METABASE_API_KEY": "",
+                    "LOG_LEVEL": "debug"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "push-docker-dashboard",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "push",
+                "gedeh/smc-dashboard:latest"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "run-docker-dashboard",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                {
+                    "quoting": "escape",
+                    "value": "--volume ./data-docker:/opt/data"
+                },
+                {
+                    "quoting": "escape",
+                    "value": "-e METABASE_URL=http://localhost:8080",
+                },
+                {
+                    "quoting": "escape",
+                    "value": "-e METABASE_EXTERNAL_URL=http://localhost:8080",
+                },
+                {
+                    "quoting": "escape",
+                    "value": "-e METABASE_API_USERNAME=metabase-username@localhost.local",
+                },
+                {
+                    "quoting": "escape",
+                    "value": "-e METABASE_API_PASSWORD=metabase-api-password",
+                },
+                {
+                    "quoting": "escape",
+                    "value": "-e METABASE_API_KEY=",
+                },
+                {
+                    "quoting": "escape",
+                    "value": "-e LOG_LEVEL=debug",
+                },
+                "gedeh/smc-dashboard:latest",
+        ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+            },
+            "problemMatcher": []
+        }
+    ]
+}

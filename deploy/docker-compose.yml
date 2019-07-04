@@ -1,0 +1,82 @@
+version: "3.7"
+
+services:
+  database:
+    image: mysql:5
+    restart: always
+    command: --lower-case-table-names=1
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${METABASE_DATABASE_NAME}
+      MYSQL_USER: ${METABASE_DATABASE_USERNAME}
+      MYSQL_PASSWORD: ${METABASE_DATABASE_PASSWORD}
+    volumes:
+      - ./data/database:/var/lib/mysql
+    networks:
+      - smc
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "${SERVICE_PHPMYADMIN_EXTERNAL_PORT}:80"
+    environment:
+      PMA_ARBITRARY: 1
+    healthcheck:
+      test: curl -s -f http://localhost:80 > /dev/null || exit 1
+      interval: 1m
+      timeout: 5s
+      retries: 3
+    networks:
+      - smc
+
+  metabase:
+    image: metabase/metabase:v0.32.5
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "${SERVICE_METABASE_EXTERNAL_PORT}:3000"
+    environment:
+      # MB_DB_AUTOMIGRATE: "false"
+      MB_PASSWORD_COMPLEXITY: normal
+      # MB_ENCRYPTION_SECRET_KEY: ${METABASE_APP_ENCRYPTION}
+      MB_DB_TYPE: mysql
+      MB_DB_DBNAME: ${METABASE_DATABASE_NAME}
+      MB_DB_USER: ${METABASE_DATABASE_USERNAME}
+      MB_DB_PASS: ${METABASE_DATABASE_PASSWORD}
+      MB_DB_HOST: database
+      MB_DB_PORT: 3306
+      JAVA_TOOL_OPTIONS: -Xms1g -Xmx2g
+      JAVA_TIMEZONE: ${METABASE_APP_TIMEZONE}
+    networks:
+       - smc
+
+  dashboard:
+    image: gedeh/smc-dashboard:prod
+    restart: always
+    depends_on:
+      - metabase
+    ports:
+      - "${SERVICE_DASHBOARD_EXTERNAL_PORT}:3000"
+    volumes:
+      - ./data/dashboard:/opt/data
+    environment:
+      METABASE_URL: http://metabase:3000
+      METABASE_API_USERNAME: ${DASHBOARD_METABASE_API_USERNAME}
+      METABASE_API_PASSWORD: ${DASHBOARD_METABASE_API_PASSWORD}
+      METABASE_EXTERNAL_URL: ${DASHBOARD_METABASE_EXTERNAL_URL}
+      DASHBOARD_EXTERNAL_URL: ${DASHBOARD_EXTERNAL_URL}
+    healthcheck:
+      test: curl -s -f http://localhost:3000/health > /dev/null || exit 1
+      interval: 1m
+      timeout: 1s
+      retries: 5
+    networks:
+       - smc
+
+networks:
+  smc:
+    driver: bridge

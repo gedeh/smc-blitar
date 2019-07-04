@@ -1,0 +1,16 @@
+{
+    "eslint.options": {
+        "configFile": ".eslintrc.json"
+    },
+    "eslint.workingDirectories": [
+        "./"
+    ],
+    "eslint.run": "onSave",
+    "eslint.alwaysShowStatus": true,
+    "editor.formatOnSave": false,
+    "files.insertFinalNewline": true,
+    "search.exclude": {
+        "**/public": true,
+        "**/node_modules": true
+    }
+}

@@ -1,0 +1,129 @@
+{
+    "title": "Kota Blitar Smart City - Command Center",
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "weather",
+                        "display": {
+                            "accent": "blue"
+                        },
+                        "city": "Blitar",
+                        "country": "ID",
+                        "appid": "1903f50538160b53500365f276e8f045"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "mini-statistic",
+                        "display": {
+                            "url": "http://104.248.156.114:8080/question/1",
+                            "accent": "red",
+                            "icon": "description",
+                            "title": "Aplikasi Kependudukan"
+                        },
+                        "chart": {
+                            "type": "bar"
+                        },
+                        "data": "question/6",
+                        "current": "question/1"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "mini-statistic",
+                        "display": {
+                            "url": "http://104.248.156.114:8080/dashboard/3",
+                            "accent": "purple",
+                            "icon": "group",
+                            "title": "Aplikasi antrian"
+                        },
+                        "chart": {
+                            "type": "bar"
+                        },
+                        "data": "question/49",
+                        "current": "question/48"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "mini-statistic",
+                        "display": {
+                            "accent": "teal",
+                            "icon": "directions_bus",
+                            "title": "Angkutan Umum"
+                        },
+                        "chart": {
+                            "type": "line"
+                        },
+                        "data": [90,80,50,60,10,20,70,75,20,40],
+                        "current": 240
+                    }
+                }
+            ]
+        },
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "accent": "amber",
+                            "icon": "description"
+                        },
+                        "chart": {
+                            "type": "stat"
+                        },
+                        "data": "question/1"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "accent": "lime",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "bar"
+                        },
+                        "data": "question/6"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "title": "Contoh chart data statis",
+                            "accent": "green",
+                            "icon": "directions_bus"
+                        },
+                        "chart": {
+                            "type": "line"
+                        },
+                        "data": [90,80,50,60,10,20,70,75,20,40]
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "chart",
+                        "display": {},
+                        "chart": {
+                            "type": "line"
+                        },
+                        "data": "question/10"
+                    }
+                }
+            ]
+        }
+    ]
+}

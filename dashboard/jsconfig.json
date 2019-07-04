@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "es6",
+      "jsx": "react",
+      "baseUrl": ".",
+      "paths": {
+        "@app/*": ["./src/*"],
+        "@server/*": ["./src/server/*"],
+        "@routes/*": ["./src/server/routes/*"],
+        "@utils/*": ["./src/server/utils/*"],
+        "@components/*": ["./src/components/*"],
+        "@bundles/*": ["./src/bundles/*"]
+      }
+    },
+    "exclude": [
+      "node_modules",
+      "public",
+      "src/public/vendors"
+    ]
+  }

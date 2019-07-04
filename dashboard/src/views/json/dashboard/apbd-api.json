@@ -1,0 +1,146 @@
+{
+    "title": "APBD - Kota Blitar",
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m12 l3",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://36.67.106.2:89/sipex2018/",
+                            "title": "Penerimaan",
+                            "accent": "teal",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "apbd/penerimaan",
+                        "label": "URAIAN",
+                        "data": [ "TARGET", "PENERIMAAN" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://36.67.106.2:89/sipex2018/",
+                            "title": "Penerimaan PAD",
+                            "accent": "green",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "apbd/penerimaan-pad",
+                        "label": "URAIAN",
+                        "data": [ "TARGET", "PENERIMAAN" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://36.67.106.2:89/sipex2018/",
+                            "accent": "amber",
+                            "icon": "group",
+                            "title": "Penerimaan Pajak"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "apbd/penerimaan-pajak",
+                        "label": "URAIAN",
+                        "data": [ "TARGET", "PENERIMAAN" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://36.67.106.2:89/sipex2018/",
+                            "accent": "red",
+                            "icon": "group",
+                            "title": "Penerimaan Retribusi"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "apbd/penerimaan-retribusi",
+                        "label": "URAIAN",
+                        "data": [ "TARGET", "PENERIMAAN" ]
+                    }
+                }
+            ]
+        },
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://36.67.106.2:89/sipex2018/",
+                            "accent": "deep-orange",
+                            "icon": "group",
+                            "title": "Pengeluaran"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "apbd/pengeluaran",
+                        "label": "URAIAN",
+                        "data": [ "PAGU", "PENGELUARAN" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://36.67.106.2:89/sipex2018/",
+                            "accent": "orange",
+                            "icon": "group",
+                            "title": "Pengeluaran Belanja Langsung"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "apbd/pengeluaran-belanja-langsung",
+                        "label": "URAIAN",
+                        "data": [ "PAGU", "PENGELUARAN" ]
+                    }
+                },
+                {
+                    "className": "s12 m12 l6",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://36.67.106.2:89/sipex2018/",
+                            "accent": "purple",
+                            "icon": "group",
+                            "title": "Pengeluaran Per OPD"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "apbd/pengeluaran-per-opd",
+                        "label": "NAMA_SKPD",
+                        "data": [ "PAGU", "PENGELUARAN" ]
+                    }
+                }
+            ]
+        }
+    ]
+}

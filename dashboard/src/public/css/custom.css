@@ -1,0 +1,47 @@
+/*================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 4.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+body.layout-semi-dark h1 span.logo-text {
+  padding-left: 0px;
+}
+
+body.layout-semi-dark #header .header-search-wrapper {
+  margin: 10px auto 0 80px;
+}
+
+body.layout-semi-dark #header .header-search-wrapper.sideNav-lock {
+  margin: 10px auto 0 260px;
+}
+
+body.layout-semi-dark #main .side-nav {
+  background: linear-gradient(45deg, #990d00 50%, #800b00 100%) !important;
+}
+
+body.layout-semi-dark #main .side-nav .collapsible-body, body.layout-semi-dark #main .side-nav.fixed .collapsible-body {
+  background: transparent !important;
+}
+
+body.layout-semi-dark #main .side-nav .collapsible-header:after {
+  color: #f3f3f3;
+}
+
+body.layout-semi-dark #main #left-sidebar-nav .brand-sidebar {
+  background: linear-gradient(45deg, #990d00 50%, #800b00 100%) !important;
+  box-shadow: none;
+}
+
+body.layout-semi-dark #main #left-sidebar-nav .brand-sidebar .logo-wrapper {
+  /* padding: 22px 10px; */
+  padding: 15px 47px;
+}
+.brand-sidebar .logo-wrapper a.brand-logo img {
+  height: 31px;
+}

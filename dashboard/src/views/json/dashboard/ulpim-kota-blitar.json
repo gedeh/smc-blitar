@@ -1,0 +1,88 @@
+{
+    "title": "Unit Layanan Pengaduan dan Informasi Masyarakat - Kota Blitar",
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "accent": "red",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "data": "question/117"
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "accent": "deep-purple",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "data": "question/116"
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "accent": "amber",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "line",
+                            "height": 200
+                        },
+                        "data": "question/115"
+                    }
+                }
+            ]
+        },
+        {
+            "cols": [
+                {
+                    "className": "s12 m12 l4",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "accent": "amber",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "pie",
+                            "height": 200
+                        },
+                        "data": "question/118"
+                    }
+                },
+                {
+                    "className": "s12 m12 l8",
+                    "widget": {
+                        "type": "chart",
+                        "display": {
+                            "accent": "teal",
+                            "icon": "group"
+                        },
+                        "chart": {
+                            "type": "doughnut",
+                            "height": 200
+                        },
+                        "data": "question/119"
+                    }
+                }
+            ]
+        }
+    ]
+}

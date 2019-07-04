@@ -1,0 +1,54 @@
+1. menurut dokumentasi
+
+  a. CSS warna bisa dirubah dengan cara meng-ekstend class seperti contoh :
+       .ilike-blue-container {
+    	    @extend .blue, .lighten-4;
+        }
+
+    1a1. kemungkinan artinya kita mengedit file html menggunakan class tersebut 
+    1a2. artinya file html itu tidak dihasilkan melalui generate file, namun merubah file
+         hasil generate tadi
+    1a3. artinya kita tidak bisa menggunakan grunt untuk merubah file html/css sebelum                  digenerate
+
+  
+  b. SCSS warna bisa dirubah dengan merubah file _variables.scss
+    	$primary-color: color("materialize-red", "lighten-2") !default;
+  	$primary-color-light: false !default;
+  	$primary-color-dark: false !default;
+  	@if not $primary-color-light {
+    	    $primary-color-light: lighten($primary-color, 15%);
+  	}
+
+    1b1. percobaan menambahkan variable yg dirubah di file custom.scss
+
+2. grunt mengkompile scss menghasilkan css.min.css di folder css
+3. grunt dist -> mengcompile css ke folder dist\css
+4. warna 00AEFF (biru) ditemukan di folder sass\theme-components\_color.scss
+                       ditemukan di folder sass\themes\semi-dark-menu\_theme.scss
+
+5. file css/custom.scss dieksekusi oleh file grunfile.js di root
+6. Tes rubah warna 00AEFF ke ff5252 :
+   a. merubah file custom.scss menggunakan format _theme.scss lalu jalankan grunt css
+
+7. pertanyaannya, apakah hubungan dari :
+   theme.scss - color.scss - variables.scss
+   
+8. untuk merubah warna nav, tidak disediakan di variables.scss dan color.scss
+
+9. copy class yang mengandung nav dari theme.scss ke custom.scss
+
+10. grunt dist-css 
+    menghasilkan file css baru (di folder startup-kit, bukan di folder dist)
+
+11. grunt server
+    menghasilkan server yg menggunakan css dari startup-kit
+
+12. grunt dist grunt dist --Layout="semi-dark-menu"
+    menghasilkan folder dist yg menggunakan css dari custom.scss 
+
+13. kesimpulannya, untuk mempublish sebuah halaman yg termodifikasi, gunakan folder dist karena sudah terkompilasi dari custom.scss
+
+14. untuk mencoba coba gunakan folder startup-kit/css/custom.css 
+    dengan mengeksekusi grunt server. tanpa selalu mengkompilasi.
+
+

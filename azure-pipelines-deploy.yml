@@ -1,0 +1,101 @@
+# Docker image
+# Build a Docker image to deploy, run, or push to a container registry.
+# Add steps that use Docker Compose, tag images, push to a registry, run an image, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+variables:
+  env.mysql.root.password: $(mysql.root.password)
+  env.metabase.app.encryption: $(metabase.app.encryption)
+  env.metabase.app.timezone: $(metabase.app.timezone)
+  env.metabase.db.name: $(metabase.db.name)
+  env.metabase.db.user: $(metabase.db.user)
+  env.metabase.db.pass: $(metabase.db.pass)
+  env.dashboard.api.username: $(dashboard.api.username)
+  env.dashboard.api.password: $(dashboard.api.password)
+  env.dashboard.metabase.external.url: $(dashboard.metabase.external.url)
+  env.dashboard.external.url: $(dashboard.external.url)
+
+steps:
+- task: cURLUploader@2
+  displayName: Copy docker-compose file
+  inputs:
+    authType: userAndPass
+    url: ftp://$(dashboard.external.url)
+    username: root
+    password: $(sudo.password)
+    files: $(build.sourcesdirectory)/deploy/docker-compose.yml
+    remotePath: /root
+    failOnStdErr: true
+    continueOnError: true
+
+- task: SSH@0
+  displayName: Create .env file
+  inputs:
+    sshEndpoint: $(ssh.endpoint)
+    runOptions: inline
+    inline: |
+        cd ~
+        touch .env
+        cat > .env <<EOF
+        COMPOSE_PROJECT_NAME=smc-blitar
+        COMPOSE_CONVERT_WINDOWS_PATHS=true
+
+        MYSQL_ROOT_PASSWORD=$(env.mysql.root.password)
+
+        METABASE_APP_ENCRYPTION=$(env.metabase.app.encryption)
+        METABASE_APP_TIMEZONE=Asia/Jakarta
+
+        METABASE_DATABASE_NAME=$(env.metabase.db.name)
+        METABASE_DATABASE_USERNAME=$(env.metabase.db.user)
+        METABASE_DATABASE_PASSWORD=$(env.metabase.db.pass)
+
+        SERVICE_PHPMYADMIN_EXTERNAL_PORT=8090
+        SERVICE_METABASE_EXTERNAL_PORT=8080
+        SERVICE_DASHBOARD_EXTERNAL_PORT=80
+
+        DASHBOARD_METABASE_API_USERNAME=$(env.dashboard.api.username)
+        DASHBOARD_METABASE_API_PASSWORD=$(env.dashboard.api.password)
+        DASHBOARD_METABASE_EXTERNAL_URL=$(env.dashboard.metabase.external.url)
+        DASHBOARD_EXTERNAL_URL=$(env.dashboard.external.url)
+        EOF
+    failOnStdErr: false
+    continueOnError: true
+
+- task: SSH@0
+  displayName: Stop the services
+  inputs:
+    sshEndpoint: $(ssh.endpoint)
+    runOptions: inline
+    inline: |
+        cd ~
+        docker-compose stop
+    failOnStdErr: false
+    continueOnError: true
+
+- task: SSH@0
+  displayName: Pull latest images
+  inputs:
+    sshEndpoint: $(ssh.endpoint)
+    runOptions: inline
+    inline: |
+        cd ~
+        docker-compose pull --no-parallel
+    failOnStdErr: false
+    continueOnError: true
+
+- task: SSH@0
+  displayName: Run all the containers
+  condition: always()
+  inputs:
+    sshEndpoint: $(ssh.endpoint)
+    runOptions: inline
+    inline: |
+        cd ~
+        docker-compose up -d
+    failOnStdErr: false
+    condition: always()

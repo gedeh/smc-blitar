@@ -1,0 +1,88 @@
+{
+    "title": "Kesehatan Kota - Kota Blitar",
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://sik.blitarkota.go.id/",
+                            "title": "Kunjungan Pasien Berdasarkan Usia dan Jenis Kelamin",
+                            "accent": "red"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "simpustronik/usia-jenkel-pasien",
+                        "label": "kelompok_umur",
+                        "data": [ "laki", "perempuan" ],
+                        "color": [ "#E59135", "#E1E535" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://sik.blitarkota.go.id/",
+                            "title": "Penyakit Perlu Di Waspadai",
+                            "accent": "blue"
+                        },
+                        "chart": {
+                            "type": "pie",
+                            "height": 200
+                        },
+                        "url": "simpustronik/warning-kasus-penyakit",
+                        "label": "kasus_penyakit",
+                        "data": [ "jumlah" ]
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://sik.blitarkota.go.id/",
+                            "title": "Jenis Asal Pasien",
+                            "accent": "green"
+                        },
+                        "chart": {
+                            "type": "bar",
+                            "height": 200
+                        },
+                        "url": "simpustronik/asal-jenis-pasien",
+                        "label": "jenis_pasien",
+                        "data": [ "dalam_wilayah", "luar_kecamatan", "luar_kecamatan", "luar_kota" ],
+                        "color": [ "#439CA0", "#436EA0", "#4743A0", "#7643A0" ]
+                    }
+                }
+            ]
+        },
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l6",
+                    "widget": {
+                        "type": "blitar-api",
+                        "display": {
+                            "url": "http://sik.blitarkota.go.id/",
+                            "title": "Jumlah Kasus Berdasarkan Kelompok Penyakit",
+                            "accent": "orange"
+                        },
+                        "chart": {
+                            "type": "pie",
+                            "height": 200
+                        },
+                        "url": "simpustronik/kasus-kelompok-penyakit",
+                        "label": "kelompok_penyakit",
+                        "data": [ "kasus_baru", "kasus_lama" ],
+                        "color": [ "#6FFB00", "#EDFB00" ]
+                    }
+                }
+            ]
+        }
+    ]
+}

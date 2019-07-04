@@ -1,0 +1,4 @@
+[submodule "bi-platform/src"]
+	path = bi-platform/src
+	url = https://github.com/metabase/metabase.git
+	branch = master

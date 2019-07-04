@@ -1,0 +1,59 @@
+# Docker image
+# Build a Docker image to deploy, run, or push to a container registry.
+# Add steps that use Docker Compose, tag images, push to a registry, run an image, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - dashboard/*
+    - azure-pipelines.yml
+
+variables:
+  imageName: 'gedeh/smc-dashboard'
+  imageVersion: '$(build.buildId)'
+  test.metabase.url: $(dashboard.test.external.url)
+  prod.metabase.url: $(dashboard.prod.external.url)
+
+jobs:
+- job: Build
+  pool:
+    vmImage: 'ubuntu-16.04'
+  steps:
+  - script: cd dashboard
+    displayName: Open dashboard
+
+  - task: Docker@1
+    displayName: Login to Docker Hub
+    inputs:
+      containerRegistryType: 'Container Registry'
+      dockerRegistryEndpoint: gedeh-registry
+      command: login
+
+  - task: Docker@1
+    displayName: Build test docker image
+    inputs:
+      imageName: '$(imageName):test'
+      includeLatestTag: false
+      addDefaultLabels: false
+      arguments:
+        --build-arg "METABASE_EXTERNAL_URL=$(test.metabase.url)" --tag $(imageName):$(imageVersion)-test
+
+  - task: Docker@1
+    displayName: Build prod docker image
+    inputs:
+      imageName: '$(imageName):prod'
+      includeLatestTag: true
+      addDefaultLabels: false
+      arguments:
+        --build-arg "METABASE_EXTERNAL_URL=$(prod.metabase.url)" --tag $(imageName):$(imageVersion)-prod
+
+  - task: Docker@1
+    displayName: Push docker image
+    inputs:
+      command: push
+      imageName: '$(imageName)'

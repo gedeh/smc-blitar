@@ -1,0 +1,7 @@
+deploy/data/
+
+dashboard/node_modules/
+dashboard/public/
+dashboard/dist/
+dashboard/bundle/
+dashboard/data/

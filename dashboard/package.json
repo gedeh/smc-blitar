@@ -1,0 +1,98 @@
+{
+  "name": "bsc-command-center",
+  "description": "Blitar Smart City - Command Center",
+  "version": "0.0.1",
+  "private": true,
+  "_moduleAliases": {
+    "@app": "./src",
+    "@server": "./src/server",
+    "@routes": "./src/server/routes",
+    "@utils": "./src/server/utils",
+    "@components": "./src/components",
+    "@bundles": "./src/bundles"
+  },
+  "scripts": {
+    "build-frontend": "grunt dist",
+    "build-frontend-watch": "grunt monitor",
+    "build-react": "webpack",
+    "build-react-watch": "webpack --watch --progress",
+    "eslint": "eslint .",
+    "start-production": "node index.js",
+    "start-dev": "nodemon --watch src/server index.js | bunyan"
+  },
+  "keywords": [
+    "command-center",
+    "smart-city",
+    "blitar"
+  ],
+  "author": {
+    "name": "Hendra & Iwan"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "@babel/core": "7.2.0",
+    "@babel/preset-env": "7.2.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/register": "7.0.0",
+    "axios": "0.18.0",
+    "babel-plugin-module-resolver": "3.1.1",
+    "bunyan": "1.8.12",
+    "chart.js": "2.7.3",
+    "ejs": "2.6.1",
+    "express": "4.16.4",
+    "hammerjs": "2.0.8",
+    "jquery": "3.4.1",
+    "leaflet": "1.4.0",
+    "markdown-it": "8.4.2",
+    "module-alias": "2.1.0",
+    "moment": "2.23.0",
+    "prop-types": "15.6.2",
+    "randomcolor": "0.5.4",
+    "react": "16.6.3",
+    "react-chartjs-2": "2.7.4",
+    "react-dom": "16.6.3",
+    "react-leaflet": "2.1.4",
+    "react-redux": "6.0.1",
+    "react-router-dom": "4.3.1",
+    "redux": "4.0.1",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.3.0",
+    "request": "2.88.0"
+  },
+  "engine": "node >= 6",
+  "devDependencies": {
+    "@babel/cli": "7.2.0",
+    "autoprefixer": "7.1.1",
+    "babel-loader": "8.0.4",
+    "eslint": "5.10.0",
+    "eslint-plugin-react": "7.11.1",
+    "grunt": "1.0.4",
+    "grunt-banner": "0.6.0",
+    "grunt-browser-sync": "2.2.0",
+    "grunt-concurrent": "2.3.1",
+    "grunt-contrib-clean": "1.1.0",
+    "grunt-contrib-compress": "1.4.1",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-uglify": "3.0.1",
+    "grunt-contrib-watch": "1.1.0",
+    "grunt-notify": "0.4.5",
+    "grunt-postcss": "0.8.0",
+    "grunt-remove-logging": "0.2.0",
+    "grunt-rename-util": "1.0.0",
+    "grunt-sass": "2.0.0",
+    "grunt-text-replace": "0.4.0",
+    "node-archiver": "0.3.0",
+    "node-sass": "4.11.0",
+    "nodemon": "1.18.7",
+    "react-hot-loader": "4.3.12",
+    "redux-devtools": "3.5.0",
+    "webpack": "4.27.1",
+    "webpack-cli": "3.1.2"
+  }
+}

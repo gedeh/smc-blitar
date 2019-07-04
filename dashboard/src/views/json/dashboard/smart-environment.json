@@ -1,0 +1,38 @@
+{
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l6",
+                    "widget": {
+                        "type": "map",
+                        "display": {
+                            "title": "Kota Blitar",
+                            "url": "https://www.blitarkota.go.id",
+                            "accent": "white"
+                        },
+                        "position": [-8.100, 112.150],
+                        "zoom": 12,
+                        "markers": [
+                            {
+                                "name": "marker-1",
+                                "position": [-8.100, 112.150],
+                                "content": "A pretty CSS3 popup.<br/>Easily customizable."
+                            },
+                            {
+                                "name": "marker-2",
+                                "position": [-8.125, 112.180],
+                                "content": "Another pretty CSS3 popup.<br/>See, its easily!"
+                            },
+                            {
+                                "name": "marker-3",
+                                "position": [-8.121, 112.110],
+                                "content": "Another pretty CSS3 popup.<br/>Still so easily!"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

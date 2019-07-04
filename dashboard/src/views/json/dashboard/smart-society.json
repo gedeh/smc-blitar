@@ -1,0 +1,52 @@
+{
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "cctv",
+                        "display": {
+                            "accent": "white",
+                            "title": "Putat Gede, Surabaya",
+                            "url": "http://jasamargalive.com/webjm3/mjm/index.php?r=site/getarea&a=21&b=1111"
+                        },
+                        "content": {
+                            "type": "image",
+                            "url": "http://116.68.252.222:89/mjpg/video.mjpg"
+                        },
+                        "description": "KM 08 + 400 M Putat Gede"
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "cctv",
+                        "display": {
+                            "accent": "amber",
+                            "title": "Waru, Surabaya"
+                        },
+                        "content": {
+                            "type": "image",
+                            "url": "http://116.68.252.222:83/mjpg/video.mjpg"
+                        }
+                    }
+                },
+                {
+                    "className": "s12 m6 l4",
+                    "widget": {
+                        "type": "cctv",
+                        "display": {
+                            "accent": "lime",
+                            "title": "Banyu Urip, Surabaya"
+                        },
+                        "content": {
+                            "type": "image",
+                            "url": "http://116.68.252.222:10000/mjpg/video.mjpg"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

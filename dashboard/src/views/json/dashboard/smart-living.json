@@ -1,0 +1,56 @@
+{
+    "rows": [
+        {
+            "cols": [
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "weather",
+                        "display": {
+                            "accent": "blue"
+                        },
+                        "city": "Blitar",
+                        "country": "ID",
+                        "appid": "1903f50538160b53500365f276e8f045"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "weather",
+                        "display": {
+                            "accent": "yellow"
+                        },
+                        "city": "Denpasar",
+                        "country": "ID",
+                        "appid": "1903f50538160b53500365f276e8f045"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "weather",
+                        "display": {
+                            "accent": "indigo"
+                        },
+                        "city": "Belfast",
+                        "country": "UK",
+                        "appid": "1903f50538160b53500365f276e8f045"
+                    }
+                },
+                {
+                    "className": "s12 m6 l3",
+                    "widget": {
+                        "type": "weather",
+                        "display": {
+                            "accent": "teal"
+                        },
+                        "city": "New York",
+                        "country": "US",
+                        "appid": "1903f50538160b53500365f276e8f045"
+                    }
+                }
+            ]
+        }
+    ]
+}

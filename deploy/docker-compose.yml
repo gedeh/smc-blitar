@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.3"
 
 services:
   database:
@@ -59,7 +59,6 @@ services:
       context: ../dashboard
       args:
         METABASE_EXTERNAL_URL: ${DASHBOARD_METABASE_EXTERNAL_URL}
-      network: host
     restart: always
     depends_on:
       - metabase

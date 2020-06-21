@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
   database:
@@ -55,11 +55,11 @@ services:
        - smc
 
   dashboard:
-    image: gedeh/smc-dashboard:prod
     build:
       context: ../dashboard
       args:
         METABASE_EXTERNAL_URL: ${DASHBOARD_METABASE_EXTERNAL_URL}
+      network: host
     restart: always
     depends_on:
       - metabase

@@ -34,7 +34,7 @@
             "options": {
                 "env": {
                     "NODE_ENV": "production",
-                    "METABASE_EXTERNAL_URL": "http://localhost:4000",
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080"
                 },
                 "cwd": "${workspaceFolder}/dashboard"
             },
@@ -48,7 +48,7 @@
             "options": {
                 "cwd": "${workspaceFolder}/dashboard",
                 "env": {
-                    "METABASE_EXTERNAL_URL": "http://localhost:4000",
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080"
                 }
             },
             "problemMatcher": []
@@ -56,12 +56,17 @@
         {
             "label": "start-local",
             "type": "shell",
+            "dependsOn":[
+                "build-frontend",
+                "build-react"
+            ],
+            "dependsOrder": "parallel",
             "command": "npm",
             "args": ["run", "start-dev"],
             "options": {
                 "env": {
-                    "METABASE_EXTERNAL_URL": "http://localhost:4000",
-                    "METABASE_URL": "http://localhost:4000",
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080",
+                    "METABASE_URL": "http://localhost:8080",
                     "METABASE_API_USERNAME": "metabase-username@localhost.local",
                     "METABASE_API_PASSWORD": "metabase-api-password",
                     "METABASE_API_KEY": "",
@@ -84,8 +89,8 @@
             "options": {
                 "cwd": "${workspaceFolder}/dashboard",
                 "env": {
-                    "METABASE_URL": "http://localhost:4000",
-                    "METABASE_EXTERNAL_URL": "http://localhost:4000",
+                    "METABASE_URL": "http://localhost:3000",
+                    "METABASE_EXTERNAL_URL": "http://localhost:8080",
                     "METABASE_API_USERNAME": "metabase-username@localhost.local",
                     "METABASE_API_PASSWORD": "metabase-api-password",
                     "METABASE_API_KEY": "",
@@ -119,32 +124,32 @@
                 },
                 {
                     "quoting": "escape",
-                    "value": "-e METABASE_URL=http://localhost:4000",
+                    "value": "-e METABASE_URL=http://localhost:8080"
                 },
                 {
                     "quoting": "escape",
-                    "value": "-e METABASE_EXTERNAL_URL=http://localhost:4000",
+                    "value": "-e METABASE_EXTERNAL_URL=http://localhost:8080"
                 },
                 {
                     "quoting": "escape",
-                    "value": "-e METABASE_API_USERNAME=metabase-username@localhost.local",
+                    "value": "-e METABASE_API_USERNAME=metabase-username@localhost.local"
                 },
                 {
                     "quoting": "escape",
-                    "value": "-e METABASE_API_PASSWORD=metabase-api-password",
+                    "value": "-e METABASE_API_PASSWORD=metabase-api-password"
                 },
                 {
                     "quoting": "escape",
-                    "value": "-e METABASE_API_KEY=",
+                    "value": "-e METABASE_API_KEY="
                 },
                 {
                     "quoting": "escape",
-                    "value": "-e LOG_LEVEL=debug",
+                    "value": "-e LOG_LEVEL=debug"
                 },
-                "gedeh/smc-dashboard:latest",
+                "gedeh/smc-dashboard:latest"
         ],
             "options": {
-                "cwd": "${workspaceFolder}/dashboard",
+                "cwd": "${workspaceFolder}/dashboard"
             },
             "problemMatcher": []
         }

@@ -5,11 +5,34 @@
 From shell, do:
 
 - Go to `deploy` directory `cd deploy`
+
+Then you need to define these environment variables:
+
 - Define path for database e.g. `data/database` using `mkdir -p ~/data/database` then `export MYSQL_DATABASE_DIRECTORY=~/data/database`
 - Define path for dashboard e.g. `data/dashboard` using  `mkdir -p ~/data/dashboard` then `export DASHBOARD_DATA_DIRECTORY=~/data/dashboard`
-- Declare MYSQL root password `export MYSQL_ROOT_PASSWORD=[metabase-database-password]`
-- Declare Metabase password `export METABASE_DATABASE_PASSWORD=[metabase-database-password]`
-- Declare external hostname `export SERVICE_EXTERNAL_HOSTNAME=[hostname]` and protocol `export SERVICE_EXTERNAL_PROTOCOL=http/https`
+- Define MYSQL root password `export MYSQL_ROOT_PASSWORD=[metabase-database-password]`
+- Define Metabase password `export METABASE_DATABASE_PASSWORD=[metabase-database-password]`
+- Define external hostname `export SERVICE_EXTERNAL_HOSTNAME=[hostname]` and protocol `export SERVICE_EXTERNAL_PROTOCOL=http/https`
+- Define external Metabase URL `export DASHBOARD_METABASE_EXTERNAL_URL=[metabase-external-url]`, for example `export DASHBOARD_METABASE_EXTERNAL_URL=http://metabase.your-domain.com:8080`
+- Define metabase API password `export DASHBOARD_METABASE_API_PASSWORD=[metabase-api-user-password]` the password should be minimum of 8 characters length, has 1 upper case, 1 lower case, and 1 number.
+
+Another option is to append all of required environment variables into `.env` file
+
+```shell
+mkdir -p ~/data/database \
+&& mkdir -p ~/data/dashboard \
+&& echo '
+MYSQL_DATABASE_DIRECTORY=~/data/database
+DASHBOARD_DATA_DIRECTORY=~/data/dashboard
+MYSQL_ROOT_PASSWORD=P@ssw0rd1!
+METABASE_DATABASE_PASSWORD=P@ssw0rd1!
+SERVICE_EXTERNAL_HOSTNAME=localhost
+SERVICE_EXTERNAL_PROTOCOL=http
+DASHBOARD_METABASE_EXTERNAL_URL=http://localhost:8080
+DASHBOARD_METABASE_API_PASSWORD=P@ssw0rd1!' >> .env
+```
+
+- Build dashboard-app image using `docker-compose build`
 - Run the service as compose `docker-compose up -d`
 
 ## Miscellaneous

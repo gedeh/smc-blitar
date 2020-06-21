@@ -1,5 +1,5 @@
 # stage 1: build
-FROM node:lts AS builder
+FROM node:12 AS builder
 
 RUN mkdir -p /build/app
 COPY . /build/app
@@ -13,7 +13,7 @@ RUN npm run build-frontend
 RUN npm uninstall grunt-cli
 
 # stage 1: runner
-FROM node:lts-slim AS runner
+FROM node:12-slim AS runner
 
 RUN mkdir -p /opt/app
 RUN mkdir -p /opt/data

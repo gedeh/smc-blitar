@@ -16,7 +16,7 @@ To prepare command-center, use the following steps:
 - Initialise the project by installing dependencies by running `npm install`
 - Using elevated priviledge command line, install [Grunt](https://gruntjs.com) as JavaScript task runner using command `npm install -g grunt-cli` _(if you unable to use `grunt` in CLI, with message **'grunt' is not recognized as an internal or external command, operable program or batch file** make sure `%USERPROFILE%\AppData\Roaming\npm` is registered in the machine's `PATH` environment variable)_
 
-### Run dashboard
+### Run dashboard app
 
 Inside directory `dashboard` \ `src`, run these command:
 

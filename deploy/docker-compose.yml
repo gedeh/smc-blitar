@@ -11,7 +11,7 @@ services:
       MYSQL_USER: ${METABASE_DATABASE_USERNAME}
       MYSQL_PASSWORD: ${METABASE_DATABASE_PASSWORD}
     volumes:
-      - ./data/database:/var/lib/mysql
+      - ${MYSQL_DATABASE_DIRECTORY}:/var/lib/mysql
     networks:
       - smc
 
@@ -49,20 +49,24 @@ services:
       MB_DB_PASS: ${METABASE_DATABASE_PASSWORD}
       MB_DB_HOST: database
       MB_DB_PORT: 3306
-      JAVA_TOOL_OPTIONS: -Xms1g -Xmx2g
+      JAVA_TOOL_OPTIONS: -Xms512m -Xmx1g
       JAVA_TIMEZONE: ${METABASE_APP_TIMEZONE}
     networks:
        - smc
 
   dashboard:
     image: gedeh/smc-dashboard:prod
+    build:
+      context: ../dashboard
+      args:
+        METABASE_EXTERNAL_URL: ${DASHBOARD_METABASE_EXTERNAL_URL}
     restart: always
     depends_on:
       - metabase
     ports:
       - "${SERVICE_DASHBOARD_EXTERNAL_PORT}:3000"
     volumes:
-      - ./data/dashboard:/opt/data
+      - ${DASHBOARD_DATA_DIRECTORY}:/opt/data
     environment:
       METABASE_URL: http://metabase:3000
       METABASE_API_USERNAME: ${DASHBOARD_METABASE_API_USERNAME}
